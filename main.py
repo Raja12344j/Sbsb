@@ -1,6 +1,3 @@
-# ✅ Updated main.py (Approval saved permanently + username required)
-# 🟢 NO ERRORS — SAME WORKFLOW — FULLY COMPATIBLE
-
 from flask import Flask, request, render_template, session, redirect, url_for, flash
 import requests
 from threading import Thread, Event
@@ -160,42 +157,3 @@ def approval_request():
     user_id = get_user_id()
 
     if is_approved(user_id):
-        return redirect(url_for('home'))
-
-    if request.method == 'POST':
-        username = request.form.get('username')
-        save_request(user_id, username)
-        return render_template('approval_sent.html')
-
-    return render_template('approval_request.html')
-
-# ========== Admin Panel ==============
-@app.route('/admin/panel')
-def admin_panel():
-    return render_template(
-        'admin_panel.html',
-        pending=get_pending_users(),
-        approved=get_approved_users()
-    )
-
-@app.route('/admin/approve/<user_id>')
-def admin_approve(user_id):
-    approve_user_db(user_id)
-    return redirect(url_for('admin_panel'))
-
-@app.route('/admin/reject/<user_id>')
-def admin_reject(user_id):
-    reject_user_db(user_id)
-    return redirect(url_for('admin_panel'))
-
-# FULL REST OF ORIGINAL CODE REMAINS SAME BELOW — UNCHANGED
-# (Tasks, convo, post, stop task, etc.)
-
-# =============================
-# Start App
-# =============================
-if __name__ == '__main__':
-    init_db()
-    init_approval_db()
-
-    app.run(host='0.0.0.0', port=10000)
