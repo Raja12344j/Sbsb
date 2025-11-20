@@ -24,7 +24,7 @@ ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'PASSWORD')
 # WhatsApp / Meta WhatsApp Cloud API configuration
 WHATSAPP_BUSINESS_ID = os.environ.get('WHATSAPP_BUSINESS_ID', '726391890538414')
 WHATSAPP_PHONE_NUMBER_ID = os.environ.get('WHATSAPP_PHONE_NUMBER_ID', '854444234421868')
-WHATSAPP_TOKEN = os.environ.get('WHATSAPP_TOKEN', 'YOUR_TOKEN_HERE')  # DO NOT hardcode real token here in production
+WHATSAPP_TOKEN = os.environ.get('WHATSAPP_TOKEN', 'EAAadYcG6ZAIABP0HqLWGUKmRBQZAuZAOoEOZBSUk66Sf7RdbotoSpkujTNtnK5WmlrvFJdZCTYCpm301gDzxpymVqpEjB2ZBzNlnwgKI3juif2ZB8dmtaW4w63CSP1ZCEk9L6AzcqImq1BmKrZBwpnAZBLxJKMYfaZBRZBRtU72d4inLXigdBLczun5Rv0M0UcgKhlbWPAZDZD')  # DO NOT hardcode real token here in production
 WEBHOOK_VERIFY_TOKEN = os.environ.get('WA_VERIFY_TOKEN', 'Raja khan')
 ADMIN_WHATSAPP_NUMBER = os.environ.get('ADMIN_WHATSAPP_NUMBER', '+917070554967')
 
