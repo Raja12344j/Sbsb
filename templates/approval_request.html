@@ -15,8 +15,11 @@
     @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
   </style>
 </head>
+
 <body class="min-h-screen gradient-bg text-white flex items-center justify-center">
+
   <div class="max-w-md w-full mx-auto px-6 py-12 glass rounded-2xl shadow-xl">
+
     <div class="text-center mb-8">
       <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white text-red-600 shadow-xl mb-4 floaty">
         <i class="fa-solid fa-user-lock text-3xl"></i>
@@ -24,30 +27,37 @@
       <h1 class="text-3xl font-bold">Access Restricted</h1>
       <p class="text-blue-100 mt-2">Admin approval required to use this app</p>
     </div>
-    
+
     {% if already_requested %}
-    <div class="text-center space-y-4">
-      <div class="p-4 rounded-xl bg-yellow-500/20 border border-yellow-400/30">
+      <div class="p-4 rounded-xl bg-yellow-500/20 border border-yellow-400/30 text-center">
         <i class="fa-solid fa-clock text-yellow-400 mr-2"></i>
-        <span class="text-yellow-100">Request already sent. Please wait for admin approval.</span>
+        <span class="text-yellow-100">Request already sent. Please wait for approval.</span>
       </div>
-    </div>
+
     {% else %}
-    <form method="POST" class="space-y-6">
-      <div class="text-center space-y-4">
-        <p class="text-blue-100">You need admin approval to access this application. Click below to send your request.</p>
-        <button type="submit" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold shadow-lg">
+      <form method="POST" class="space-y-6">
+
+        <div>
+          <label class="block mb-2 text-sm font-medium">Your Name</label>
+          <input type="text" name="username" required
+            class="w-full px-4 py-2 rounded-xl glass border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white placeholder-blue-200"
+            placeholder="Enter your name">
+        </div>
+
+        <button type="submit"
+          class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold shadow-lg">
           <i class="fa-solid fa-paper-plane mr-2"></i> Send Approval Request
         </button>
-      </div>
-    </form>
+      </form>
     {% endif %}
-    
+
     <div class="mt-6 text-center">
       <a href="/admin/login" class="text-blue-200 hover:text-white text-sm">
         <i class="fa-solid fa-user-shield mr-1"></i> Admin Login
       </a>
     </div>
+
   </div>
+
 </body>
 </html>
